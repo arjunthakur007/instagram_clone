@@ -33,45 +33,45 @@ export const Hero = () => {
   ];
 
   return (
-    <div className="max-w-150 w-screen ">
-      <div className="w-full h-16 bg-amber-50"></div>
+    <div className="max-w-150 w-screen">
+  <div className="w-full h-16 bg-amber-50"></div>
 
-      {card.map((i) => (
-         <div style={{ width: '300px', border: '1px solid #ccc', fontFamily: 'sans-serif', margin: '20px auto' }}>
-         <div style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
-           <img
-             src={i.user.image}
-             alt="Profile"
-             style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
-           />
-           <div>
-             <p style={{ margin: 0, fontWeight: 'bold' }}>{i.user.profile_name}</p>
-             <p style={{ margin: 0, fontSize: '12px', color: '#888' }}>{i.user.song_name}</p>
-           </div>
-         </div>
-   
-         <img src={i.media.post_image} alt="Post" style={{ width: '100%', display: 'block' }} />
-   
-         <div style={{ padding: '10px' }}>
-           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-             <div>
-               <span>{i.reaction_section.buttons.like_icon}</span>
-               <span>{i.reaction_section.buttons.comment_icon}</span>
-               <span>{i.reaction_section.buttons.dm_icon}</span>
-               <span>{i.reaction_section.buttons.save_icon}</span>
-             </div>
-             <span>{i.reaction_section.buttons.like_count} likes</span>
-           </div>
-   
-           <p style={{ margin: '5px 0', fontSize: '14px', color: '#888' }}>
-             {i.reaction_section.comment_section.view_comments}
-           </p>
-           <p style={{ margin: '5px 0', fontSize: '14px', color: '#888' }}>
-             {i.reaction_section.comment_section.add_comment} {i.reaction_section.comment_section.emoji}
-           </p>
-         </div>
-       </div>
-      ))}
+  {card.map((i, index) => (
+    <div key={index} className="w-[300px] border border-gray-300 font-sans mx-auto my-5">
+      <div className="p-2 flex items-center">
+        <img
+          src={i.user.image}
+          alt="Profile"
+          className="w-10 h-10 rounded-full mr-2"
+        />
+        <div>
+          <p className="m-0 font-bold">{i.user.profile_name}</p>
+          <p className="m-0 text-xs text-gray-500">{i.user.song_name}</p>
+        </div>
+      </div>
+
+      <img src={i.media.post_image} alt="Post" className="w-full block" />
+
+      <div className="p-2">
+        <div className="flex justify-between">
+          <div>
+            <span>{i.reaction_section.buttons.like_icon}</span>
+            <span>{i.reaction_section.buttons.comment_icon}</span>
+            <span>{i.reaction_section.buttons.dm_icon}</span>
+            <span>{i.reaction_section.buttons.save_icon}</span>
+          </div>
+          <span>{i.reaction_section.buttons.like_count} likes</span>
+        </div>
+
+        <p className="m-1 text-sm text-gray-500">
+          {i.reaction_section.comment_section.view_comments}
+        </p>
+        <p className="m-1 text-sm text-gray-500">
+          {i.reaction_section.comment_section.add_comment} {i.reaction_section.comment_section.emoji}
+        </p>
+      </div>
     </div>
+  ))}
+</div>
   );
 };
