@@ -1,10 +1,12 @@
-import Sidebar from "@/components/Sidebar";
+import { Hero } from "@/components/Hero";
+import Map from "@/components/Map"
 
 
 export default function Home() {
   return (
-   <div>
-    <Sidebar/>
+   <div className="flex p-8">
+    <Map/>
+    <Hero/>
    </div>
   );
 }
