@@ -61,7 +61,7 @@ const Map = () => {
       </div>
 
       {sidebaritems.map((i) => (
-       <div className="max-w-56 mb-4">
+       <div className="max-w-[20vw] w-[14vw] mb-4">
          <div onClick={() => router.push(i.link)} className="flex items-center gap-4 w-full px-3 py-2 hover:bg-neutral-200 rounded-md transition-colors duration-300">
            <div className="text-lg"> {i.icon}</div>
            <div className="text-lg">{i.title}</div>
