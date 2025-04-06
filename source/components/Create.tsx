@@ -1,24 +1,38 @@
 "use client"
+import { title } from 'process';
 import React from 'react'
+import {useState} from 'react'
 
 const Create = () => {
 
-    const addpost = [
-        {
-            title: <input type="text" placeholder='Add title' />,
-            description: <textarea name="" id=""></textarea>,
-            image: <input type="file" accept='image/png, image/jpg, image/jpeg, image/gif, image/mp4'/>,
-        }]
+    const [title , setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [image, setImage] = useState("");
 
+    const post_data = () => {
+        console.log({title, description, image});
+
+    
+    }
+   
+    
+
+    
+//e.target.value
   return (
     
-    {addpost.map((i) => (
-    <div>
-       {i.title}
-       {i.description}
-       {i.image}
+   <div>
+
+    <div className=''>
+        <input type="text" placeholder='Add title' value={title} onChange={(e) => setTitle(e.target.value)}/>      
+      <div className=''><textarea name="description" placeholder='description' value={description} onChange={(e)=> setDescription(e.target.value)}></textarea></div>
+      <input type="file" accept='image/png, image/jpg, image/jpeg, image/gif, image/mp4' value={image} onChange={(e)=> setImage(e.target.value)}/>
+
+       <button onClick={(e)=>  post_data()}>Add post</button>
     </div>
-) )}
+    
+
+   </div>
   )
 }
 
