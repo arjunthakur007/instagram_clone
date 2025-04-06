@@ -4,6 +4,8 @@ import React from "react";
 import { useState } from "react";
 
 const Create = () => {
+ 
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
@@ -13,6 +15,7 @@ const Create = () => {
     localStorage.setItem("title", title)
     localStorage.setItem("description", description)
     localStorage.setItem("image", image)
+    
     console.log({ title, description, image });
   };
 

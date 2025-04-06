@@ -20,17 +20,14 @@ export const Hero = () => {
 
       reaction_section: {
         buttons: {
-          like_icon: "❤️",
-          comment_icon: "💬",
-          dm_icon: "✈️",
-          save_icon: "🔖",
+          
           like_count: "123",
         },
 
         comment_section: {
           view_comments: "View all 15 comments",
           add_comment: "Add a comment...",
-          emoji: "😊",
+         
         },
       },
     },
@@ -73,7 +70,7 @@ export const Hero = () => {
               </div>
             </div>
 
-            <div className="flex border-1 border-gray-300 max-w-[32vw] rounded-sm h-[80vh] px-12 bg-black">
+            <div className="flex border-1 border-gray-300 max-w-[30vw] rounded-sm h-[80vh] px-12 bg-black">
               <img src={i.media.post_image} className="flex w-full h-full " />
             </div>
 
