@@ -1,35 +1,43 @@
 "use client";
-import { title } from "process";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Create = () => {
- 
-
+  const [card_data, setCard_Data] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
 
   const post_data = () => {
-    //localStorage
-    localStorage.setItem("title", title)
-    localStorage.setItem("description", description)
-    localStorage.setItem("image", image)
-    
-    console.log({ title, description, image });
+    const newCard = {
+      title: title,
+      description: description,
+      image: image,
+    };
+
+    // Update the card_data state with the new card
+    setCard_Data((prevCards) => [...prevCards, newCard]);
+
+    // Store the updated card_data in localStorage
+    localStorage.setItem("card", JSON.stringify([...card_data, newCard]));
+
+    // Clear input fields after adding
+    setTitle("");
+    setDescription("");
+    setImage("");
+
+    console.log(newCard);
   };
 
-  //e.target.value
   return (
     <div>
-      <div className="">
+      <div>
         <input
           type="text"
           placeholder="Add title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <div className="">
+        <div>
           <textarea
             name="description"
             placeholder="description"
@@ -39,11 +47,12 @@ const Create = () => {
         </div>
         <input
           type="text"
+          placeholder="Image URL"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
 
-        <button onClick={(e) => post_data()}>Add post</button>
+        <button onClick={post_data}>Add post</button>
       </div>
     </div>
   );
