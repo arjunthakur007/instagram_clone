@@ -43,6 +43,8 @@ export const Hero = () => {
   const description = localStorage.getItem("description")
   const image = localStorage.getItem("image")
 
+
+
   //making a new card 
   const new_Card = {
     title: title,
@@ -50,17 +52,19 @@ export const Hero = () => {
     image: image,
   }
 
- setCard_Data((prevCard_Data)) => {
-  const updatedCard_Data  = [...prevCard_Data, newData];
+//  setCard_Data((prevCard_Data)) => {
+//   const updatedCard_Data  = [...prevCard_Data, newData];
 
-  localStorage.setItem("storedData", JSON.stringify(updatedCard_Data));
- }
+//   localStorage.setItem("storedData", JSON.stringify(updatedCard_Data));
+//  }
 
 
   return (
     <div className="max-w-[65vw]">
       <div className="w-full h-16 bg-amber-50"></div>
        <h1>{title}</h1>
+       <h1>{description}</h1>
+       <h1>{image}</h1>
       {card.map((i, index) => (
         <div className="px-44 py-2">
           <div
