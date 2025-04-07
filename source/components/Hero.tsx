@@ -1,7 +1,7 @@
 // rafce
 "use client"
 import { title } from "process";
-import React from "react";
+import React, { useState , useEffect } from "react";
 
 export const Hero = () => {
   const card = [
@@ -35,10 +35,26 @@ export const Hero = () => {
     
   ];
   
+  const [card_data, setCard_Data] = useState([]);
+
+
   //localStorage
   const title = localStorage.getItem("title")
   const description = localStorage.getItem("description")
   const image = localStorage.getItem("image")
+
+  //making a new card 
+  const new_Card = {
+    title: title,
+   description: description,
+    image: image,
+  }
+
+ setCard_Data((prevCard_Data)) => {
+  const updatedCard_Data  = [...prevCard_Data, newData];
+
+  localStorage.setItem("storedData", JSON.stringify(updatedCard_Data));
+ }
 
 
   return (
