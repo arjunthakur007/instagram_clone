@@ -7,15 +7,15 @@ const Create = () => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
 
-  const post_data = () => {
+  const post_data = () => { //triggred when add post button is clicked
     const newCard = {
       title: title,
       description: description,
       image: image,
     };
 
-    // Update the card_data state with the new card
-    setCard_Data((prevCards) => [...prevCards, newCard]);
+    // we created a function for the setCard_Data so it can update the "card" state
+    setCard_Data((prevCards) => [...prevCards, newCard]); //(...) are 
 
     // Store the updated card_data in localStorage
     localStorage.setItem("card", JSON.stringify([...card_data, newCard]));
